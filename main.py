@@ -20,8 +20,9 @@ class Pool:
     def add_variant(self, name: str):
         self.variants.append(name)
 
-    def add_music(self, path: str):
+    def add_music(self, path: str, name: str):
         self.music.append(path)
+        self.add_variant(name)
 
     def set_random_current_music(self):
         if len(self.music) > 0:
@@ -53,3 +54,6 @@ class Pool:
 4) repeat
 
 '''
+if __name__ == '__main__':
+    pool = Pool()
+    pool.add_music('music/lazzyTown.wav', 'Super Ice - We are number one')

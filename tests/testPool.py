@@ -22,7 +22,7 @@ class TestPool(unittest.TestCase):
 
     def test_play_music(self):
         pool = Pool()
-        pool.add_music('../music/lazzyTown.wav')
+        pool.add_music('../music/lazzyTown.wav', 'Super Ice - We are number one')
         pool.set_random_current_music()
         pool.play_music()
         self.assertEqual(1, 1)
@@ -30,7 +30,7 @@ class TestPool(unittest.TestCase):
     # LOGIC
     def test_set_random_current_music(self):
         pool = Pool()
-        pool.add_music('../music/lazzyTown.wav')
+        pool.add_music('../music/lazzyTown.wav', 'Super Ice - We are number one')
         pool.set_random_current_music()
         self.assertGreaterEqual(pool.current_music, 0)
 
@@ -41,7 +41,7 @@ class TestPool(unittest.TestCase):
 
     def test_add_music(self):
         pool = Pool()
-        pool.add_music('../music/lazzyTown.wav')
+        pool.add_music('../music/lazzyTown.wav', 'Super Ice - We are number one')
         self.assertEqual(pool.music, ['../music/lazzyTown.wav'])
 
     def test_add_variant(self):

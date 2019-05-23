@@ -1,14 +1,15 @@
 import unittest
+import os
 import pygame
 
 class TestResourcesExisting(unittest.TestCase):
     def test_pygame_not_install(self):
-        self.assertIsNotNone(pygame, "pyglet cant be None")
+        self.assertIsNotNone(pygame, "pygame cant be None")
 
     def test_lazzy_town_music(self):
-        pygame.mixer.init()
-        pygame.mixer.music.load('../music/lazzyTown.wav')
-        pygame.mixer.music.play()
-        while pygame.mixer.music.get_busy():
-            pygame.time.Clock().tick(10)
-        self.assertIsNotNone(1, 'music/lazzyTown.mp3 must exists')
+        path = '../music/lazzyTown.wav'
+        self.assertTrue(os.path.exists(path))
+
+    def test_back_in_black_music(self):
+        path = '../music/BackInBlack.wav'
+        self.assertTrue(os.path.exists(path))
