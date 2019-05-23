@@ -18,6 +18,9 @@ class Pool:
     def add_variant(self, name: str):
         self.variants.append(name)
 
+    def add_music(self, path: str):
+        self.music.append(path)
+
     def print(self):
         for i in self.variants:
             print(i)
