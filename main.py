@@ -15,7 +15,7 @@ class Pool:
     def __init__(self):
         self.variants = []
         self.music = []
-        self.current_music = 0
+        self.current_music = -1
         self.min = 1
         self.max = 4
 
@@ -26,7 +26,8 @@ class Pool:
         self.music.append(path)
 
     def set_random_current_music(self):
-        self.current_music = random.randint(self.min, self.max)
+        if len(self.music) > 0:
+            self.current_music = random.randint(0, len(self.music))
 
     def print(self):
         for i in self.variants:
