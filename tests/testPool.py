@@ -10,17 +10,22 @@ class TestPool(unittest.TestCase):
 
     def test_variants_list_exists(self):
         pool = Pool()
-        self.assertIsNotNone(pool.variants)
+        self.assertEqual(pool.variants, [])
 
     def test_music_list_exists(self):
         pool = Pool()
-        self.assertIsNotNone(pool.music)
+        self.assertEqual(pool.music, [])
 
     def test_current_music_exists(self):
         pool = Pool()
-        self.assertIsNotNone(pool.current_music)
+        self.assertEqual(pool.current_music, 0)
 
     # LOGIC
+    def test_set_random_current_music(self):
+        pool = Pool()
+        pool.set_random_current_music()
+        self.assertNotEqual(pool.current_music, 0)
+
     def test_add_music(self):
         pool = Pool()
         pool.add_music('music/lazzyTown.mp3')

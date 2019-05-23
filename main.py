@@ -1,4 +1,5 @@
 import pyglet
+import random
 
 
 def makeChoice():
@@ -15,12 +16,17 @@ class Pool:
         self.variants = []
         self.music = []
         self.current_music = 0
+        self.min = 1
+        self.max = 4
 
     def add_variant(self, name: str):
         self.variants.append(name)
 
     def add_music(self, path: str):
         self.music.append(path)
+
+    def set_random_current_music(self):
+        self.current_music = random.randint(self.min, self.max)
 
     def print(self):
         for i in self.variants:
