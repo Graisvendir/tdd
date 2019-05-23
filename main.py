@@ -69,6 +69,7 @@ if __name__ == '__main__':
     pool = Pool()
     pool.add_music('music/lazzyTown.wav', 'Super Ice - We are number one')
     pool.add_music('music/BackInBlack.wav', 'AC/DC - Back In Black')
+    pool.set_random_current_music()
     while True:
         print_vars(pool.get_variants())
         choice = input('Num/exit/play: ')
