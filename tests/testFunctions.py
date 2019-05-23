@@ -1,6 +1,7 @@
 import unittest
 import main
 
+
 class TestChoseMusic(unittest.TestCase):
     def setUp(self) -> None:
         self.choice = main.makeChoice()
