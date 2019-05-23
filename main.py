@@ -39,7 +39,7 @@ class Pool:
         sound = pygame.mixer.Sound(self.music[self.current_music])
         sound.play()
         while pygame.mixer.music.get_busy():
-            pygame.time.Clock().tick(10)
+            pygame.time.Clock().tick(5)
 
     def print_error(self):
         return 'Invalid choice. Please, retype!'
@@ -58,7 +58,7 @@ class Pool:
 
 
 def print_vars(variants: [str]):
-    num = 0
+    num = 1
     print('\n')
     for i in variants:
         print(str(num) + '. ' + i)
@@ -68,8 +68,9 @@ def print_vars(variants: [str]):
 if __name__ == '__main__':
     pool = Pool()
     pool.add_music('music/lazzyTown.wav', 'Super Ice - We are number one')
-    pool.add_music('music/BlackInBlack.wav', 'AC/DC - Back In Black')
+    pool.add_music('music/BackInBlack.wav', 'AC/DC - Back In Black')
     while True:
+        print_vars(pool.get_variants())
         choice = input('Num/exit/play: ')
         if choice == 'exit':
             break
@@ -81,5 +82,4 @@ if __name__ == '__main__':
                 print('You WIN!')
             else:
                 print('You LOSE!')
-            print_vars(pool.get_variants())
             pool.set_random_current_music()
