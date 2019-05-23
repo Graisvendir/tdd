@@ -1,8 +1,7 @@
 import unittest
 import pyglet
-import main
 
-class TestChoseMusic(unittest.TestCase):
+class TestResourcesExisting(unittest.TestCase):
     def testPygletNotInstall(self):
         self.assertIsNotNone(pyglet, "pyglet cant be None")
 
