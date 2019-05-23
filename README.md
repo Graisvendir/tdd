@@ -1,0 +1,1 @@
+require python 3.7 and pygame
