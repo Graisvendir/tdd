@@ -9,6 +9,8 @@ def makeChoice():
 
 class Pool:
 
+    def __init__(self):
+        self.pool = []
 
     def print(self):
         print()
