@@ -48,3 +48,11 @@ class TestPool(unittest.TestCase):
         pool = Pool()
         pool.add_variant('new var')
         self.assertEqual(pool.variants, ['new var'])
+
+
+    def test_check_choice(self):
+        pool = Pool()
+        pool.add_music('../music/lazzyTown.wav', 'Super Ice - We are number one')
+        pool.set_random_current_music()
+        result = pool.check_choice(1)
+        self.assertEqual(result, 1)

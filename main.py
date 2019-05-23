@@ -2,14 +2,6 @@ import pygame
 import random
 
 
-def makeChoice():
-    choice = input()
-    if isinstance(choice, int):
-        return choice
-    else:
-        return 0
-
-
 class Pool:
 
     def __init__(self):
@@ -29,10 +21,18 @@ class Pool:
             self.current_music = random.randint(0, len(self.music) - 1)
 
     def check_choice(self, choice: int):
-        if self.current_music == choice:
-            print('You WIN!')
+        if self.current_music == choice - 1:
+            return 1
         else:
-            print('You LOSE!')
+            return 0
+
+    def makeChoice(self):
+        choice = input()
+        if isinstance(choice, int):
+            return self.check_choice(choice)
+        else:
+            self.print_error()
+            return 0
 
     def play_music(self):
         print(self.music[self.current_music])
@@ -42,9 +42,11 @@ class Pool:
         while pygame.mixer.music.get_busy():
             pygame.time.Clock().tick(10)
 
-    def print(self):
-        for i in self.variants:
-            print(i)
+    def print_error(self):
+        return 'Invalid choice. Please, retype!'
+
+    def get_variants(self):
+        return self.variants
 
 
 '''
@@ -54,6 +56,20 @@ class Pool:
 4) repeat
 
 '''
+
+
+def print_vars(variants: [str]):
+    num = 0
+    for i in variants:
+        print(str(num) + '. ' + i + '\n')
+        num += 1
+
+
 if __name__ == '__main__':
     pool = Pool()
     pool.add_music('music/lazzyTown.wav', 'Super Ice - We are number one')
+    pool.add_music('music/lazzyTown.wav', 'AC/DC - Back In Black')
+    while True:
+        pool.set_random_current_music()
+        print_vars(pool.get_variants())
+        choice = pool.makeChoice()
