@@ -16,8 +16,6 @@ class Pool:
         self.variants = []
         self.music = []
         self.current_music = -1
-        self.min = 1
-        self.max = 4
 
     def add_variant(self, name: str):
         self.variants.append(name)
@@ -28,6 +26,12 @@ class Pool:
     def set_random_current_music(self):
         if len(self.music) > 0:
             self.current_music = random.randint(0, len(self.music))
+
+    def check_choice(self, choice: int):
+        if self.current_music == choice:
+            print('You WIN!')
+        else:
+            print('You LOSE!')
 
     def print(self):
         for i in self.variants:
