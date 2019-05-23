@@ -1,5 +1,4 @@
 import unittest
-import pyglet
 import main
 
 class TestChoseMusic(unittest.TestCase):

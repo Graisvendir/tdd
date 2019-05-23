@@ -6,3 +6,4 @@ def makeChoice():
         return choice
     else:
         return 0
+
