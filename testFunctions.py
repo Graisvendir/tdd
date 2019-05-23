@@ -3,10 +3,11 @@ import pyglet
 import main
 
 class TestChoseMusic(unittest.TestCase):
+    def setUp(self) -> None:
+        self.choice = main.makeChoice()
+
     def test_make_choice_exists(self):
-        choice = main.makeChoice()
-        self.assertIsNotNone(choice, 'makeChoice func must be existing')
+        self.assertIsNotNone(self.choice, 'makeChoice func must be existing')
 
     def test_choice_is_int(self):
-        choice = main.makeChoice()
-        self.assertTrue(isinstance(choice, int))
+        self.assertTrue(isinstance(self.choice, int))

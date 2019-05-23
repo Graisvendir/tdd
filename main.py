@@ -2,4 +2,7 @@ import pyglet
 
 def makeChoice():
     choice = input()
-    return choice
+    if isinstance(choice, int):
+        return choice
+    else:
+        return 0
