@@ -7,9 +7,13 @@ class TestPool(unittest.TestCase):
     def test_pool_exists(self):
         self.assertIsNotNone(Pool)
 
-    def test_pool_list_exist(self):
+    def test_variants_list_exist(self):
         pool = Pool()
         self.assertIsNotNone(pool.variants)
+
+    def test_music_list_exist(self):
+        pool = Pool()
+        self.assertIsNotNone(pool.music)
 
     def test_add_variant(self):
         pool = Pool()
