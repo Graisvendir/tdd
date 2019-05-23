@@ -1,4 +1,4 @@
-import pyglet
+import pygame
 import random
 
 
@@ -25,13 +25,21 @@ class Pool:
 
     def set_random_current_music(self):
         if len(self.music) > 0:
-            self.current_music = random.randint(0, len(self.music))
+            self.current_music = random.randint(0, len(self.music) - 1)
 
     def check_choice(self, choice: int):
         if self.current_music == choice:
             print('You WIN!')
         else:
             print('You LOSE!')
+
+    def play_music(self):
+        print(self.music[self.current_music])
+        pygame.mixer.init()
+        sound = pygame.mixer.Sound(self.music[self.current_music])
+        sound.play()
+        while pygame.mixer.music.get_busy():
+            pygame.time.Clock().tick(10)
 
     def print(self):
         for i in self.variants:
