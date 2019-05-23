@@ -10,7 +10,16 @@ def makeChoice():
 class Pool:
 
     def __init__(self):
-        self.pool = []
+        self.variants = []
 
     def print(self):
-        print()
+        for i in self.variants:
+            print(i)
+
+'''
+1) print variants and play sound choice
+2) make choice
+3) print result
+4) repeat
+
+'''

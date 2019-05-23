@@ -9,7 +9,9 @@ class TestPool(unittest.TestCase):
 
     def test_pool_list_exist(self):
         pool = Pool()
-        self.assertIsNotNone(pool.pool)
+        self.assertIsNotNone(pool.variants)
 
-    def sqe(self):
-        print()
+    def test_add_variant(self):
+        pool = Pool()
+        pool.add_variant('new var')
+        self.assertEqual(pool.variants, ['new var'])
