@@ -1,4 +1,5 @@
 import unittest
+import pyglet
 
 class TestChoseMusic(unittest.TestCase):
     def testPygletNotInstall(self):
