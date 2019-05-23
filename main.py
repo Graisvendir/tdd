@@ -13,6 +13,7 @@ class Pool:
 
     def __init__(self):
         self.variants = []
+        self.music = []
 
     def add_variant(self, name: str):
         self.variants.append(name)
