@@ -7,3 +7,6 @@ def makeChoice():
     else:
         return 0
 
+class Pool:
+    def print(self):
+        print()
