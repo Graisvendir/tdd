@@ -15,6 +15,11 @@ class TestPool(unittest.TestCase):
         pool = Pool()
         self.assertIsNotNone(pool.music)
 
+    def test_add_music(self):
+        pool = Pool()
+        pool.add_music('music/lazzyTown.mp3')
+        self.assertEqual(pool.music, ['new var'])
+
     def test_add_variant(self):
         pool = Pool()
         pool.add_variant('new var')
