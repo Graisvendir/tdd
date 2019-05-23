@@ -56,3 +56,10 @@ class TestPool(unittest.TestCase):
         pool.set_random_current_music()
         result = pool.check_choice(1)
         self.assertEqual(result, 1)
+
+    def test_make_choise(self):
+        pool = Pool()
+        pool.add_music('../music/lazzyTown.wav', 'Super Ice - We are number one')
+        pool.set_random_current_music()
+        result = pool.make_choice(1)
+        self.assertEqual(result, 1)

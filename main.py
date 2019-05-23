@@ -26,8 +26,7 @@ class Pool:
         else:
             return 0
 
-    def makeChoice(self):
-        choice = input()
+    def make_choice(self, choice: int):
         if isinstance(choice, int):
             return self.check_choice(choice)
         else:
@@ -60,16 +59,27 @@ class Pool:
 
 def print_vars(variants: [str]):
     num = 0
+    print('\n')
     for i in variants:
-        print(str(num) + '. ' + i + '\n')
+        print(str(num) + '. ' + i)
         num += 1
 
 
 if __name__ == '__main__':
     pool = Pool()
     pool.add_music('music/lazzyTown.wav', 'Super Ice - We are number one')
-    pool.add_music('music/lazzyTown.wav', 'AC/DC - Back In Black')
+    pool.add_music('music/BlackInBlack.wav', 'AC/DC - Back In Black')
     while True:
-        pool.set_random_current_music()
-        print_vars(pool.get_variants())
-        choice = pool.makeChoice()
+        choice = input('Num/exit/play: ')
+        if choice == 'exit':
+            break
+        elif choice == 'play':
+            pool.play_music()
+        else:
+            result = pool.make_choice(int(choice))
+            if result:
+                print('You WIN!')
+            else:
+                print('You LOSE!')
+            print_vars(pool.get_variants())
+            pool.set_random_current_music()
