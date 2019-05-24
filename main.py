@@ -36,10 +36,13 @@ class Pool:
     def play_music(self):
         print(self.music[self.current_music])
         pygame.mixer.init()
-        sound = pygame.mixer.Sound(self.music[self.current_music])
-        sound.play()
+        pygame.mixer.music.load(self.music[self.current_music])
+        pygame.mixer.music.play(0)
+
+        clock = pygame.time.Clock()
+        clock.tick(10)
         while pygame.mixer.music.get_busy():
-            pygame.time.Clock().tick(5)
+            clock.tick(5)
 
     def print_error(self):
         return 'Invalid choice. Please, retype!'
